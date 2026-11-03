@@ -1,68 +1,86 @@
-# Galleon Marine AI — Techlanica / TSO-36
+# Galion Marine AI
 
-[![Status](https://img.shields.io/badge/status-concept%20%2F%20pre--FEED-blue)](#status)
-[![Scope](https://img.shields.io/badge/scope-ships%20%26%20maritime%20logistics-teal)](#what-this-repo-covers)
+[![Status](https://img.shields.io/badge/status-concept%20%2F%20skica-blue)](#status)
+[![Senzori](https://img.shields.io/badge/senzori-LiDAR%20%2B%20vizija%20%2B%20akustika-teal)](#senzorski-stog)
 [![Licence](https://img.shields.io/badge/licence-MIT-green)](LICENSE)
 
-Public documentation for **TSO-36** — a compact self-propelled marine barge (*teglenica*) for closed-container waste logistics between Dalmatian islands and the Split mainland transfer chain. Ships are conceived for **local build in the Split / Trogir shipbuilding corridor** (Techlanica context), drawing on Dalmatian yard heritage rather than ornamental design.
+**Hrvatski (primarni)** · [English below](#english-summary)
 
-**Author & project lead:** Maciej Grajczyk (*autor i voditelj projekta*) · Galion Studio ([galion.studio](https://galion.studio) · [galion.app](https://galion.app))
+Sustav **automatskog vođenja** za plovila tipa **Teglenica TSO-36**: fuzija **LiDAR-a**, **vizije (kamere)** i **zvuka (akustika)** na brodskom računalu — asistencija i nadzirana autonomija na linijama otok ↔ kopno Splitsko-dalmatinske županije.
 
-> **Out of scope for this repository:** power-plant / *energana* engineering, inland energy-recovery plant siting, and any data-centre or floating-compute concepts. Those topics live elsewhere and are intentionally **not** mirrored here.
+**Autor i voditelj projekta:** Maciej Grajczyk · Galion Studio ([galion.studio](https://galion.studio) · [galion.app](https://galion.app))
 
-![TSO-36 concept at an island pier: self-propelled barge, bow ramp, closed containers, and a yard tractor](media/02_teglenica_otocno_pristaniste_oznaceno.jpg)
-
-*Konceptualni prikaz — ilustracija. Island call with closed containers; not a class or construction drawing.*
+> **Ovaj repozitorij nije** brodogradnja Teglenice, nije energana i nije plutajući podatkovni centar. Brodovi, luke i zatvoreni spremnici žive u [galion-studio/Teglenica-TSO-36](https://github.com/galion-studio/Teglenica-TSO-36). Ovdje je **AI mozak vođenja** koji će se ugraditi u ta plovila.
 
 ---
 
 ## Status
 
-Concept / **pre-FEED**. Not a class-society approved design, not a construction or environmental permit, and not a financing offer. Figures in the source PDFs are indicative discussion drafts.
+Koncept / **skica arhitekture**. Nema još ugrađenog hardvera, klasne notacije za autonomiju, ni odobrenja lučke kapetanije. Cilj v1: **posada na mostu** + sustav podrške odlukama (advisory), kasnije nadzirana autonomija uz ROC (Remote Operations Centre).
 
 ---
 
-## What this repo covers
+## Svrha (za koga)
 
-| Topic | Content |
+| Strana | Što dobiva |
 |---|---|
-| **Vessel** | Compact self-propelled barge for **9 closed containers** per trip; bow ramp; industrial Dalmatian lines |
-| **Crew** | 3 (master + 2) |
-| **Fleet** | Plan for **two** identical TSO-36 units (serial / tender pair) |
-| **Island chain** | Brač, Hvar, Šolta, Vis (+ Čiovo/Okrug–Trogir, Drvenik Veli/Mali as preferred weekly calls) |
-| **Island handling** | Compactors → DIN 30722 closed containers (no press on the vessel) |
-| **Build region** | Split / Trogir shipbuilding heritage — local yard capability for steel barge work |
-| **Example line** | Vis / Komiža → Split transfer port (studied in the technical plan) |
+| **Vlada / SDŽ / općine** | Jasniji, sigurniji otpadni lanac otok→kopno uz manje rizika u uskim kanalima |
+| **Brodari i brodogradilišta (Split/Trogir)** | Spec senzorskog i računalnog paketa „autonomy-ready, crewed“ |
+| **Posada** | Upozorenja na sudar, pomoć pri pristajanju, bolja situacijska svjesnost noću i u magli |
+| **Open-source zajednica** | MIT dokumentacija, skice fuzije, put prema otvorenom softveru |
 
 ---
 
-## Documents
+## Senzorski stog
 
-### Sources (PDF foundation)
-
-| File | Role |
+| Modalitet | Uloga na Teglenici |
 |---|---|
-| [sources/Tehnicki_plan_teglenica_SDZ_v3.pdf](sources/Tehnicki_plan_teglenica_SDZ_v3.pdf) | **Current** technical plan (v3) — two TSO-36 barges, island compactors, land logistics |
-| [sources/Tehnicki_plan_teglenica_SDZ_v2.pdf](sources/Tehnicki_plan_teglenica_SDZ_v2.pdf) | Prior technical plan (v2), kept for history |
-| [sources/Konceptualni_prikazi_oznaceno.pdf](sources/Konceptualni_prikazi_oznaceno.pdf) | Labelled conceptual visuals (barge / pier / logistics chain) |
+| **LiDAR** | 3D blizina pri pristajanju, luke, pejsani objekti, zona-skeneri na palubi |
+| **Vizija** | 360° dnevne + IR kamere; detekcija malih plovila, plivača, plutača, otpada |
+| **Akustika** | Hidrofoni / akustički senzori: bliski objekti u magli, upozorenja, nadopuna LiDAR-a/vizije |
+| **Fuzija** | Zajednički prostor objekata + AIS/radar (ako postoji na brodu) → savjeti za kurs i manevre |
 
-### Media
-
-| File | Role |
-|---|---|
-| [media/02_teglenica_otocno_pristaniste_oznaceno.jpg](media/02_teglenica_otocno_pristaniste_oznaceno.jpg) | Island pier / barge handling concept (labelled) |
-
-### Docs index
-
-See [docs/INDEX.md](docs/INDEX.md) for a short reading order and how the PDFs map to the public narrative.
-
-Start with **v3**. If a number in a PDF disagrees with this README, the PDF wins.
+Detalji: [docs/hr/01-senzorski-stog.md](docs/hr/01-senzorski-stog.md) · [docs/en/01-sensor-stack.md](docs/en/01-sensor-stack.md)
 
 ---
 
-## Related public repo
+## Arhitektura (skica)
 
-A parallel public pack also exists at [galion-studio/Teglenica-TSO-36](https://github.com/galion-studio/Teglenica-TSO-36). This **Galleon Marine AI** repository is the Galion Studio satellite focused on the **ship / Techlanica** story for Split–Trogir local build, without plant or data-centre material.
+```
+  LiDAR ─┐
+  Kamere ─┼─► fuzija percepcije ─► lokalna mapa ─► savjeti COLREG ─► HMI mosta
+  Akustika┘         │                                │
+                    └──── brodsko računalo (edge) ───┴──► opcionalno ROC na kopnu
+```
+
+Više: [architecture/OVERVIEW.md](architecture/OVERVIEW.md) · [docs/hr/02-fuzija-i-vođenje.md](docs/hr/02-fuzija-i-vođenje.md)
+
+---
+
+## Integracija s Teglenicom
+
+- Nositelj plovila i logistike: **[Teglenica-TSO-36](https://github.com/galion-studio/Teglenica-TSO-36)**
+- Galion Marine AI: paket senzora + edge računalo + softver vođenja (ovaj repo)
+- Regulativa (HR): start kao oprema na brodu s posadom; smanjena posada / MASS tek kroz službeni pilot
+
+[docs/hr/03-integracija-teglenica.md](docs/hr/03-integracija-teglenica.md)
+
+---
+
+## Dokumenti
+
+| Put | Sadržaj |
+|---|---|
+| [docs/hr/](docs/hr/) | Hrvatski tehnički tekstovi (primarni) |
+| [docs/en/](docs/en/) | English mirrors |
+| [architecture/](architecture/) | Dijagrami i slojna skica |
+| [sketches/](sketches/) | Bilješke iz prethodnih sesija / praznine |
+
+---
+
+## English summary
+
+**Galion Marine AI** is a concept for an onboard **automatic guidance** stack for **Teglenica TSO-36** waste barges: **LiDAR + vision + acoustic** sensor fusion on an edge computer for assisted / supervised navigation and harbour ops on Dalmatian island–mainland legs. Shipbuilding and waste logistics stay in [Teglenica-TSO-36](https://github.com/galion-studio/Teglenica-TSO-36). This repo is MIT concept docs — not class-approved autonomy.
 
 ---
 

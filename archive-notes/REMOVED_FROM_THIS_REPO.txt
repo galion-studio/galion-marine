@@ -1,0 +1,6 @@
+Removed from galion-marine / local galleon-marine-ai during 2026-11-03 rework (belong in Teglenica-TSO-36 only):
+- sources/Tehnicki_plan_teglenica_SDZ_v3.pdf
+- sources/Tehnicki_plan_teglenica_SDZ_v2.pdf
+- sources/Konceptualni_prikazi_oznaceno.pdf
+- media/02_teglenica_otocno_pristaniste_oznaceno.jpg
+- Prior README framing as Techlanica shipbuilding public pack
