@@ -86,4 +86,9 @@ Više: [architecture/OVERVIEW.md](architecture/OVERVIEW.md) · [docs/hr/02-fuzij
 
 ## Licence
 
-[MIT](LICENSE) © 2026 Maciej Grajczyk / Galion Studio
+[MIT](LICENSE) © 2026 Galion Labs
+
+G.A.L.I.O.N. — General Autonomous Local Intelligence Open Network  
+Developed and distributed by Galion Labs  
+Perpetual Open MIT License  
+Copyright © 2026 Galion Labs. All rights reserved.
